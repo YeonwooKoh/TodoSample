@@ -2,6 +2,7 @@ package com.gogo.sample.todo;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
@@ -34,16 +35,27 @@ public class TodoService {
 
     }
 
+    public TodoDTO findById(Long taskId) {
+
+        Optional<Todo> optionalTodo = todoRepository.findById(taskId);
+
+        if(optionalTodo.isPresent()) return TodoDTO.toTodoDTO(optionalTodo.get());
+        else return null;
+
+    }
+
+
     public void editTodo(TodoDTO todoDTO) {
 
         todoRepository.save(Todo.toEditTodoEntity(todoDTO));
 
     }
 
+    public void delete(Long taskId) {
+
+        todoRepository.deleteById(taskId);
+
+    }
 
 
-
-    
-
-
-}
+}//class

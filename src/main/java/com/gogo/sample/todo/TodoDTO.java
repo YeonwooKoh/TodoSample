@@ -16,7 +16,7 @@ import lombok.ToString;
 @ToString
 public class TodoDTO {
 
-    private Long id;
+    private Long taskId;
     private String taskName;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate dueDate;
@@ -25,7 +25,7 @@ public class TodoDTO {
         
         TodoDTO todoDTO=new TodoDTO();
 
-        todoDTO.setId(todo.getId());
+        todoDTO.setTaskId(todo.getTaskId());
         todoDTO.setTaskName(todo.getTaskName());
         todoDTO.setDueDate(todo.getDueDate());
         

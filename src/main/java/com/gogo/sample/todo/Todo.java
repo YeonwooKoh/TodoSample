@@ -17,7 +17,7 @@ public class Todo {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long taskId;
 
     private String taskName;
 
@@ -39,7 +39,7 @@ public class Todo {
 
         Todo todo = new Todo();
 
-        todo.setId(todoDTO.getId());
+        todo.setTaskId(todoDTO.getTaskId());
         todo.setTaskName(todoDTO.getTaskName());
         todo.setDueDate(todoDTO.getDueDate());
 
